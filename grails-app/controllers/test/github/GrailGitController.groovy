@@ -2,5 +2,10 @@ package test.github
 
 class GrailGitController {
 
-    def index() { }
+    SiteService siteService
+
+    def index() {
+        [list : siteService.list()]
+    }
+
 }
