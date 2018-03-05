@@ -4,9 +4,6 @@ class GrailGitController {
 
     UserService userService
 
-
-
-
     def index() {
         println  "mostrar"
     }
