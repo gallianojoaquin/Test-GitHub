@@ -1,20 +1,23 @@
 package test.github
 
+import grails.converters.JSON
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
 class CategoryController {
 
     CategoryService categoryService
+    GrailGitService grailGitService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond categoryService.list(params), model:[categoryCount: categoryService.count()]
+        respond categoryService.list(params), model:[categoryCount: categoryService.count()] as JSON
     }
 
     def show(Long id) {
+        grailGitService.incrementaVisitas(id)
         respond categoryService.get(id)
     }
 

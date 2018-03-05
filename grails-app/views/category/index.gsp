@@ -19,7 +19,6 @@
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
             <f:table collection="${categoryList}" />
-
             <div class="pagination">
                 <g:paginate total="${categoryCount ?: 0}" />
             </div>

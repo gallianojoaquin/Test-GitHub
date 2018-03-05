@@ -13,7 +13,7 @@ class Category {
         visits validator: { Integer val ->
             if(val < 0) return 'visitsCanNotBeLowerThanZero'
         }
-        urlImage  blank: true
+        urlImage  blank: true, nullable: true
         site nullable: true
     }
 }
